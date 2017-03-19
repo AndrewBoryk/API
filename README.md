@@ -5,6 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/API.svg?style=flat)](http://cocoapods.org/pods/API)
 [![License](https://img.shields.io/cocoapods/l/API.svg?style=flat)](http://cocoapods.org/pods/API)
 [![Platform](https://img.shields.io/cocoapods/p/API.svg?style=flat)](http://cocoapods.org/pods/API)
+[![Twitter](https://img.shields.io/badge/twitter-@TrepIsLife-blue.svg?style=flat)](http://twitter.com/TrepIsLife)
 
 ## Description
 
