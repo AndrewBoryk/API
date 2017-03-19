@@ -55,15 +55,15 @@ typedef NS_ENUM(NSInteger, ABAPIRequestType) {
 - (void)DELETE:(APIResponseBlock)block;
 
 /// GET request for API
-+ (void)GET:(ABAPIRequest *)request completion:(APIResponseBlock)block;
++ (void)GET:(APIRequest *)request completion:(APIResponseBlock)block;
 
 /// POST request for API
-+ (void)POST:(ABAPIRequest *)request completion:(APIResponseBlock)block;
++ (void)POST:(APIRequest *)request completion:(APIResponseBlock)block;
 
 /// PUT request for API
-+ (void)PUT:(ABAPIRequest *)request completion:(APIResponseBlock)block;
++ (void)PUT:(APIRequest *)request completion:(APIResponseBlock)block;
 
 /// DELETE request for API
-+ (void)DELETE:(ABAPIRequest *)request completion:(APIResponseBlock)block;
++ (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)block;
 
 @end

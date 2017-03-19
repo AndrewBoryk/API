@@ -7,6 +7,7 @@
 //
 
 #import "APIResponseObject.h"
+#import "APICommons.h"
 
 @implementation APIResponseObject
 
@@ -54,7 +55,7 @@
 - (NSString *)successDataString {
     NSString *data = @"";
     
-    if ([ABAPIConstants notNull:self.successData]) {
+    if ([APICommons notNull:self.successData]) {
         data = [NSString stringWithFormat:@"%@", self.successData];
     }
     
@@ -64,7 +65,7 @@
 - (NSString *)successTaskString {
     NSString *task = @"";
     
-    if ([ABAPIConstants notNull:self.successTask]) {
+    if ([APICommons notNull:self.successTask]) {
         task = [NSString stringWithFormat:@"%@", self.successTask];
     }
     
@@ -74,7 +75,7 @@
 - (NSString *)failureTaskString {
     NSString *operation = @"";
     
-    if ([ABAPIConstants notNull:self.failureTask]) {
+    if ([APICommons notNull:self.failureTask]) {
         operation = [NSString stringWithFormat:@"%@", self.failureTask];
     }
     
@@ -84,7 +85,7 @@
 - (NSString *)failureErrorString {
     NSString *error = @"";
     
-    if ([ABAPIConstants notNull:self.failureError]) {
+    if ([APICommons notNull:self.failureError]) {
         error = [NSString stringWithFormat:@"%@", self.failureError];
     }
     
