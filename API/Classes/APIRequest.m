@@ -298,7 +298,7 @@
     if ([APICommons isValidPath:self.url]) {
         return self.url;
         
-    } else if ([APICommons isValidPath:self.base] && [APICommons isValidPath:self.relativePath]) {
+    } else if ([APICommons isValidPath:self.base]) {
         NSString *url = self.base;
         
         if ([APICommons isValidPath:self.version]) {
@@ -323,13 +323,15 @@
             }
         }
         
-        NSString *urlEnding = [url substringFromIndex:url.length - 1];
-        NSString *relativeFront = [self.relativePath substringWithRange:NSMakeRange(0, 1)];
-        
-        url = [NSString stringWithFormat:@"%@%@", url, self.relativePath];
-        
-        if (!([urlEnding isEqualToString:@"/"] || [relativeFront isEqualToString:@"/"])) {
-            NSLog(@"No connecting '/' before relativeString, results in: %@", url);
+        if ([APICommons isValidPath:self.relativePath]) {
+            NSString *urlEnding = [url substringFromIndex:url.length - 1];
+            NSString *relativeFront = [self.relativePath substringWithRange:NSMakeRange(0, 1)];
+            
+            url = [NSString stringWithFormat:@"%@%@", url, self.relativePath];
+            
+            if (!([urlEnding isEqualToString:@"/"] || [relativeFront isEqualToString:@"/"])) {
+                NSLog(@"No connecting '/' before relativeString, results in: %@", url);
+            }
         }
         
         return url;
