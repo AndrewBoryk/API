@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		14453B0D17401FA78BC32E9E /* Pods-API_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API_Tests/Pods-API_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3369F7C47204DDF79BAB500C /* API.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = API.podspec; path = ../API.podspec; sourceTree = "<group>"; };
+		3369F7C47204DDF79BAB500C /* API.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = API.podspec; path = ../API.podspec; sourceTree = "<group>"; };
 		344143C6385C156A3F72BE04 /* Pods-API_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-API_Example/Pods-API_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3CE1CA055457E7732037A0B3 /* Pods-API_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-API_Tests/Pods-API_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* API_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,11 +60,11 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6ABEF53FA7B9D9F40CD15F68 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6ABEF53FA7B9D9F40CD15F68 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6F2EB0CC9EBA188BE86EB776 /* Pods_API_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_API_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8CCB310F22F77973AC22C724 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		8CCB310F22F77973AC22C724 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AF9A50366B2E68E81D811A8E /* Pods_API_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_API_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA037B4F1E62D1FB8E4FB831 /* Pods-API_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API_Example/Pods-API_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = andrewboryk;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = EM32C32CW4;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -524,6 +527,7 @@
 			baseConfigurationReference = CA037B4F1E62D1FB8E4FB831 /* Pods-API_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EM32C32CW4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API/API-Prefix.pch";
 				INFOPLIST_FILE = "API/API-Info.plist";
@@ -539,6 +543,7 @@
 			baseConfigurationReference = 344143C6385C156A3F72BE04 /* Pods-API_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EM32C32CW4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "API/API-Prefix.pch";
 				INFOPLIST_FILE = "API/API-Info.plist";

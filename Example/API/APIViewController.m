@@ -7,6 +7,8 @@
 //
 
 #import "APIViewController.h"
+#import <API/API.h>
+#import <API/APIRequest.h>
 
 @interface APIViewController ()
 

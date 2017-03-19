@@ -241,19 +241,19 @@
 }
 
 + (void)GET:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API get:request.urlString setHeader:request.header setParameter:request.params completion:block];
+    [API GET:request.urlString header:request.header parameters:request.params completion:block];
 }
 
 + (void)POST:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API post:request.urlString setHeader:request.header setParameter:request.params completion:block];
+    [API POST:request.urlString header:request.header parameters:request.params completion:block];
 }
 
 + (void)PUT:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API put:request.urlString setHeader:request.header setParameter:request.params completion:block];
+    [API PUT:request.urlString header:request.header parameters:request.params completion:block];
 }
 
 + (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API del:request.urlString setHeader:request.header setParameter:request.params completion:block];
+    [API DEL:request.urlString header:request.header parameters:request.params completion:block];
 }
 
 #pragma mark - Accessors

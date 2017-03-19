@@ -11,7 +11,7 @@
 
 @implementation API
 
-+ (void)get:(NSString *)path setHeader:(NSDictionary *)header setParameter:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
++ (void)get:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
     
     if ([APICommons isValidPath:path]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
@@ -34,7 +34,7 @@
     
 }
 
-+ (void)post:(NSString *)path setHeader:(NSDictionary *)header setParameter:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
++ (void)post:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
     
     if ([APICommons isValidPath:path]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
@@ -55,7 +55,7 @@
     
 }
 
-+ (void)put:(NSString *)path setHeader:(NSDictionary *)header setParameter:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
++ (void)put:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
     
     if ([APICommons isValidPath:path]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
@@ -73,7 +73,7 @@
     
 }
 
-+ (void)del:(NSString *)path setHeader:(NSDictionary *)header setParameter:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
++ (void)del:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
     
     if ([APICommons isValidPath:path]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];

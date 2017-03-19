@@ -12,15 +12,15 @@
 @interface API : NSObject
 
 /// GET request for API
-+ (void)get:(NSString *)url setHeader:(NSDictionary *)header setParameter:(NSDictionary *)param completion:(APIResponseBlock)block;
++ (void)GET:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)block;
 
 /// POST request for API
-+ (void)post:(NSString *)url setHeader:(NSDictionary *)header setParameter:(NSDictionary *)param completion:(APIResponseBlock)block;
++ (void)POST:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)block;
 
 /// PUT request for API
-+ (void)put:(NSString *)url setHeader:(NSDictionary *)header setParameter:(NSDictionary *)param completion:(APIResponseBlock)block;
++ (void)PUT:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)block;
 
 /// DEL request for API
-+ (void)del:(NSString *)url setHeader:(NSDictionary *)header setParameter:(NSDictionary *)param completion:(APIResponseBlock)block;
++ (void)DEL:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)block;
 
 @end
