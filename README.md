@@ -115,6 +115,20 @@ After creating the APIRequest instance, one can make the API request by calling 
 
 ```
 
+### Using Default API Values
+
+If you are looking to set default API values for Base, Version, and APIKey; these values can be set inside your Info.plist file like so:
+
+![alt tag](API_PList_Example.png)
+
+These values can be used to make an APIRequest like so:
+
+```objective-c
+
+APIRequest *request = [[APIRequest alloc] initWithBase:[API base] version:[API version] apiKey:[API apiKey] relativePath:@"/test/"];
+
+```
+
 ### Customizing AFHTTPSessionManager and AFSecurityPolicy
 
 AFHTTPSessionManager and AFSecurityPolicy have been set up with default settings. If you'd like to customize these settings to your preference, this can be done by adjusting the settings for the manager and policy in the 'requestManagerWithHeader:' method inside the 'API.m' file.
