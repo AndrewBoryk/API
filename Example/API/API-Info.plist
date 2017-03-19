@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>API-Defaults</key>
+	<dict>
+		<key>APIKey</key>
+		<string>1234567890</string>
+		<key>Base</key>
+		<string>https://api.example.com</string>
+		<key>Version</key>
+		<string>v0</string>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

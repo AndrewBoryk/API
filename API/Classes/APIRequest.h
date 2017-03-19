@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "APICommons.h"
 
-typedef NS_ENUM(NSInteger, ABAPIRequestType) {
+typedef NS_ENUM(NSInteger, APIRequestType) {
     GET,
     POST,
     PUT,
     DELETE
 };
+
+extern NSString *APIDefaultBase;
 
 @interface APIRequest : NSObject
 
@@ -41,6 +43,15 @@ typedef NS_ENUM(NSInteger, ABAPIRequestType) {
 
 /// URL string for the request, made up with all components specified in the request
 @property (strong, nonatomic, readonly) NSString *urlString;
+
+/// Default base specified in the Info.plist under API-Defaults -> Base
++ (NSString *)base;
+
+/// Default version for the requests, specified in the Info.plist under API-Defaults -> Version
++ (NSString *)version;
+
+/// Default apiKey for the requests, specified in the Info.plist under API-Defaults -> APIKey
++ (NSString *)apiKey;
 
 #pragma mark - URL Initializers
 
@@ -115,7 +126,7 @@ typedef NS_ENUM(NSInteger, ABAPIRequestType) {
 #pragma mark - Instance Requests
 
 /// Make an APIRequest with specified type
-- (void)request:(ABAPIRequestType)type completion:(APIResponseBlock)completionBlock;
+- (void)request:(APIRequestType)type completion:(APIResponseBlock)completionBlock;
 
 /// Make a GET APIRequest
 - (void)GET:(APIResponseBlock)completionBlock;
@@ -138,7 +149,7 @@ typedef NS_ENUM(NSInteger, ABAPIRequestType) {
 #pragma mark - Class Requests
 
 /// Make a request using the given APIRequest with the specified type
-+ (void)request:(APIRequest *)request withType:(ABAPIRequestType)type completion:(APIResponseBlock)completionBlock;
++ (void)request:(APIRequest *)request withType:(APIRequestType)type completion:(APIResponseBlock)completionBlock;
 
 /// Make a GET request using the given APIRequest
 + (void)GET:(APIRequest *)request completion:(APIResponseBlock)completionBlock;

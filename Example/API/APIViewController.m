@@ -56,7 +56,7 @@
         
     }];
     
-    APIRequest *delRequest = [[APIRequest alloc] initWithBase:@"" version:nil apiKey:nil relativePath:nil];
+    APIRequest *delRequest = [[APIRequest alloc] initWithBase:[API base] version:[API version] apiKey:[API apiKey] relativePath:@"test/"];
     
     [delRequest DELETE:^(APIResponseObject *response, NSError *error) {
         

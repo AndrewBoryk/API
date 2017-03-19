@@ -23,4 +23,13 @@
 /// DEL request for API
 + (void)DEL:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock;
 
+/// Default base specified in the Info.plist under API-Defaults -> Base
++ (NSString *)base;
+
+/// Default version for the requests, specified in the Info.plist under API-Defaults -> Version
++ (NSString *)version;
+
+/// Default apiKey for the requests, specified in the Info.plist under API-Defaults -> APIKey
++ (NSString *)apiKey;
+
 @end

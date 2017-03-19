@@ -134,4 +134,45 @@
     return nil;
 }
 
++ (NSDictionary *)defaults {
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Info" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    if ([APICommons notNull:[dict objectForKey: @"API-Defaults"]] && [[dict objectForKey: @"API-Defaults"] isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *defaults = [dict objectForKey: @"API-Defaults"];
+        
+        return defaults;
+    }
+    
+    return [[NSDictionary alloc] init];
+}
+
++ (NSString *)base {
+    
+    if ([APICommons notNull:[[API defaults] objectForKey:@"Base"]]) {
+        NSString *base = [[API defaults] objectForKey:@"Base"];
+        return base;
+    }
+    
+    return @"";
+    
+}
+
++ (NSString *)version {
+    if ([APICommons notNull:[[API defaults] objectForKey:@"Version"]]) {
+        NSString *version = [[API defaults] objectForKey:@"Version"];
+        return version;
+    }
+    
+    return @"";
+}
+
++ (NSString *)apiKey {
+    if ([APICommons notNull:[[API defaults] objectForKey:@"APIKey"]]) {
+        NSString *apiKey = [[API defaults] objectForKey:@"APIKey"];
+        return apiKey;
+    }
+    
+    return @"";
+}
+
 @end

@@ -149,19 +149,19 @@
 #pragma mark - Base/Version/API/Path Initializers
 
 - (instancetype)initWithBase:(NSString *)base version:(NSString *)version apiKey:(NSString *)apiKey relativePath:(NSString *)relativePath {
-    self = [self initWithBase:base version:nil apiKey:apiKey relativePath:relativePath params:nil header:nil];
+    self = [self initWithBase:base version:version apiKey:apiKey relativePath:relativePath params:nil header:nil];
     
     return self;
 }
 
 - (instancetype)initWithBase:(NSString *)base version:(NSString *)version apiKey:(NSString *)apiKey relativePath:(NSString *)relativePath params:(NSDictionary *)params {
-    self = [self initWithBase:base version:nil apiKey:apiKey relativePath:relativePath params:params header:nil];
+    self = [self initWithBase:base version:version apiKey:apiKey relativePath:relativePath params:params header:nil];
     
     return self;
 }
 
 - (instancetype)initWithBase:(NSString *)base version:(NSString *)version apiKey:(NSString *)apiKey relativePath:(NSString *)relativePath header:(NSDictionary *)header {
-    self = [self initWithBase:base version:nil apiKey:apiKey relativePath:relativePath params:nil header:header];
+    self = [self initWithBase:base version:version apiKey:apiKey relativePath:relativePath params:nil header:header];
     
     return self;
 }
@@ -183,7 +183,7 @@
 
 #pragma mark - Instance Requests
 
-- (void)request:(ABAPIRequestType)type completion:(APIResponseBlock)block {
+- (void)request:(APIRequestType)type completion:(APIResponseBlock)block {
     [APIRequest request:self withType:type completion:^(APIResponseObject *response, NSError *error) {
         if (block) block(response, error);
     }];
@@ -223,7 +223,7 @@
 
 #pragma mark - Class Requests
 
-+ (void)request:(APIRequest *)request withType:(ABAPIRequestType)type completion:(APIResponseBlock)block {
++ (void)request:(APIRequest *)request withType:(APIRequestType)type completion:(APIResponseBlock)block {
     switch (type) {
             
         case GET: {
@@ -305,33 +305,56 @@
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *versionFront = [self.version substringWithRange:NSMakeRange(0, 1)];
             
-            url = [NSString stringWithFormat:@"%@%@", url, self.version];
+            NSString *versionString = self.version;
             
             if (!([urlEnding isEqualToString:@"/"] || [versionFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before version, results in: %@", url);
+                NSLog(@"No connecting '/' before version, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.version]);
+                NSLog(@"Adding '/' to front of version. Comment out next line to remove this functionality.");
+                
+                versionString = [NSString stringWithFormat: @"/%@", versionString];
             }
+            
+            url = [NSString stringWithFormat:@"%@%@", url, versionString];
+            
+            
         }
         
         if ([APICommons isValidString:self.apiKey]) {
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *apiFront = [self.apiKey substringWithRange:NSMakeRange(0, 1)];
             
-            url = [NSString stringWithFormat:@"%@%@", url, self.apiKey];
+            NSString *apiString = self.apiKey;
             
             if (!([urlEnding isEqualToString:@"/"] || [apiFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before api, results in: %@", url);
+                NSLog(@"No connecting '/' before apiKey, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.apiKey]);
+                NSLog(@"Adding '/' to front of apiKey. Comment out next line to remove this functionality.");
+                
+                apiString = [NSString stringWithFormat: @"/%@", apiString];
             }
+            
+            url = [NSString stringWithFormat:@"%@%@", url, apiString];
+            
+            
         }
+
         
         if ([APICommons isValidString:self.relativePath]) {
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *relativeFront = [self.relativePath substringWithRange:NSMakeRange(0, 1)];
             
-            url = [NSString stringWithFormat:@"%@%@", url, self.relativePath];
+            NSString *relativeString = self.relativePath;
             
             if (!([urlEnding isEqualToString:@"/"] || [relativeFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before relativeString, results in: %@", url);
+                NSLog(@"No connecting '/' before relativePath, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.relativePath]);
+                NSLog(@"Adding '/' to from of relativePath. Comment out next line to remove this functionality.");
+                
+                relativeString = [NSString stringWithFormat: @"/%@", relativeString];
+                
             }
+            
+            url = [NSString stringWithFormat:@"%@%@", url, relativeString];
+            
+            
         }
         
         return url;
@@ -339,6 +362,18 @@
     }
     
     return nil;
+}
+
++ (NSString *)base {
+    return [API base];
+}
+
++ (NSString *)version {
+    return [API version];
+}
+
++ (NSString *)apiKey {
+    return [API apiKey];
 }
 
 @end
