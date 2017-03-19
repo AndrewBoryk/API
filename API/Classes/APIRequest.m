@@ -57,7 +57,7 @@
         }
         
         if ([APICommons notNull:params]) {
-            _params = params;
+            _params = (NSMutableDictionary *)params;
         }
         
         if ([APICommons notNull:header]) {
@@ -174,7 +174,7 @@
         _apiKey = apiKey;
         _version = version;
         _relativePath = relativePath;
-        _params = params;
+        _params = (NSMutableDictionary *)params;
         _header = header;
     }
     

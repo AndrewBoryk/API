@@ -32,6 +32,8 @@
     self.statusCode = r.statusCode;
     self.successData = responseObject;
     self.successTask = task;
+    
+    return self;
 }
 
 - (instancetype)initWithFailureTask:(NSURLSessionDataTask *)task error:(NSError *)error {
@@ -40,6 +42,8 @@
     self.statusCode = r.statusCode;
     self.failureTask = task;
     self.failureError = error;
+    
+    return self;
 }
 
 - (NSString *)statusCodeString {
