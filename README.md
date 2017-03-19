@@ -6,6 +6,10 @@
 [![License](https://img.shields.io/cocoapods/l/API.svg?style=flat)](http://cocoapods.org/pods/API)
 [![Platform](https://img.shields.io/cocoapods/p/API.svg?style=flat)](http://cocoapods.org/pods/API)
 
+## Description
+
+API is a wrapper for AlamoFire's AFNetworking framework. API allows for easy API creation within one's app, so that time when can be saved.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
