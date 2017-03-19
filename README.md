@@ -22,7 +22,7 @@ pod "API"
 
 ## Author
 
-andrewboryk, aboryk@mercymavericks.edu
+andrewboryk, andrewcboryk@gmail.com
 
 ## License
 
