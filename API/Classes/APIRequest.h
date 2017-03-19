@@ -94,26 +94,34 @@ typedef NS_ENUM(NSInteger, ABAPIRequestType) {
 
 #pragma mark - Instance Requests
 
-- (void)request:(ABAPIRequestType)type completion:(APIResponseBlock)block;
+- (void)request:(ABAPIRequestType)type completion:(APIResponseBlock)completionBlock;
 
-- (void)GET:(APIResponseBlock)block;
+- (void)GET:(APIResponseBlock)completionBlock;
 
-- (void)POST:(APIResponseBlock)block;
+- (void)POST:(APIResponseBlock)completionBlock;
 
-- (void)PUT:(APIResponseBlock)block;
+- (void)PUT:(APIResponseBlock)completionBlock;
 
-- (void)DELETE:(APIResponseBlock)block;
+- (void)DELETE:(APIResponseBlock)completionBlock;
+
+- (void)GET:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock;
+
+- (void)POST:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock;
 
 #pragma mark - Class Requests
 
-+ (void)request:(APIRequest *)request withType:(ABAPIRequestType)type completion:(APIResponseBlock)block;
++ (void)request:(APIRequest *)request withType:(ABAPIRequestType)type completion:(APIResponseBlock)completionBlock;
 
-+ (void)GET:(APIRequest *)request completion:(APIResponseBlock)block;
++ (void)GET:(APIRequest *)request completion:(APIResponseBlock)completionBlock;
 
-+ (void)POST:(APIRequest *)request completion:(APIResponseBlock)block;
++ (void)POST:(APIRequest *)request completion:(APIResponseBlock)completionBlock;
 
-+ (void)PUT:(APIRequest *)request completion:(APIResponseBlock)block;
++ (void)PUT:(APIRequest *)request completion:(APIResponseBlock)completionBlock;
 
-+ (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)block;
++ (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)completionBlock;
+
++ (void)GET:(APIRequest *)request completion:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock;
+
++ (void)POST:(APIRequest *)request completion:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock;
 
 @end

@@ -11,12 +11,12 @@
 
 @implementation API
 
-+ (void)get:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
++ (void)GET:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
     
-    if ([APICommons isValidPath:path]) {
+    if ([APICommons isValidPath:url]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
         
-        [manager GET:path parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progressBlock) progressBlock(downloadProgress.fractionCompleted);
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -34,12 +34,12 @@
     
 }
 
-+ (void)post:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
++ (void)POST:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params progress:(APIProgressBlock)progressBlock completion:(APIResponseBlock)completionBlock {
     
-    if ([APICommons isValidPath:path]) {
+    if ([APICommons isValidPath:url]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
         
-        [manager POST:path parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+        [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
             if (progressBlock) progressBlock(uploadProgress.fractionCompleted);
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -55,12 +55,12 @@
     
 }
 
-+ (void)put:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
++ (void)PUT:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
     
-    if ([APICommons isValidPath:path]) {
+    if ([APICommons isValidPath:url]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
         
-        [manager PUT:path parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [manager PUT:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             APIResponseObject *response = [[APIResponseObject alloc] initWithSuccessTask:task responseObject:responseObject];
             
             if(completionBlock) completionBlock(response, nil);
@@ -73,12 +73,12 @@
     
 }
 
-+ (void)del:(NSString *)path header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
++ (void)DEL:(NSString *)url header:(NSDictionary *)header parameters:(NSDictionary *)params completion:(APIResponseBlock)completionBlock {
     
-    if ([APICommons isValidPath:path]) {
+    if ([APICommons isValidPath:url]) {
         AFHTTPSessionManager *manager = [API requestManagerWithHeader:header];
         
-        [manager DELETE:path parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [manager DELETE:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             APIResponseObject *response = [[APIResponseObject alloc] initWithSuccessTask:task responseObject:responseObject];
             
             if(completionBlock) completionBlock(response, nil);

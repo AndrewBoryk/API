@@ -20,6 +20,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [API GET:@"" header:nil parameters:nil progress:^(double fractionCompleted) {
+        
+    } completion:^(APIResponseObject *response, NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning

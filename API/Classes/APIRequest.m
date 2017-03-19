@@ -213,6 +213,14 @@
     }];
 }
 
+- (void)GET:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock {
+    [APIRequest GET:self completion:completionBlock withProgress:progressBlock];
+}
+
+- (void)POST:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock {
+    [APIRequest POST:self completion:completionBlock withProgress:progressBlock];
+}
+
 #pragma mark - Class Requests
 
 + (void)request:(APIRequest *)request withType:(ABAPIRequestType)type completion:(APIResponseBlock)block {
@@ -240,20 +248,28 @@
     }
 }
 
-+ (void)GET:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API GET:request.urlString header:request.header parameters:request.params completion:block];
++ (void)GET:(APIRequest *)request completion:(APIResponseBlock)completionBlock {
+    [API GET:request.urlString header:request.header parameters:request.params progress:nil completion:completionBlock];
 }
 
-+ (void)POST:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API POST:request.urlString header:request.header parameters:request.params completion:block];
++ (void)POST:(APIRequest *)request completion:(APIResponseBlock)completionBlock {
+    [API POST:request.urlString header:request.header parameters:request.params progress:nil completion:completionBlock];
 }
 
-+ (void)PUT:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API PUT:request.urlString header:request.header parameters:request.params completion:block];
++ (void)PUT:(APIRequest *)request completion:(APIResponseBlock)completionBlock {
+    [API PUT:request.urlString header:request.header parameters:request.params completion:completionBlock];
 }
 
-+ (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)block {
-    [API DEL:request.urlString header:request.header parameters:request.params completion:block];
++ (void)DELETE:(APIRequest *)request completion:(APIResponseBlock)completionBlock {
+    [API DEL:request.urlString header:request.header parameters:request.params completion:completionBlock];
+}
+
++ (void)GET:(APIRequest *)request completion:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock {
+    [API GET:request.urlString header:request.header parameters:request.params progress:progressBlock completion:completionBlock];
+}
+
++ (void)POST:(APIRequest *)request completion:(APIResponseBlock)completionBlock withProgress:(APIProgressBlock)progressBlock {
+    [API POST:request.urlString header:request.header parameters:request.params progress:progressBlock completion:completionBlock];
 }
 
 #pragma mark - Accessors
