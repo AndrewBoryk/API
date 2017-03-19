@@ -308,8 +308,8 @@
             NSString *versionString = self.version;
             
             if (!([urlEnding isEqualToString:@"/"] || [versionFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before version, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.version]);
-                NSLog(@"Adding '/' to front of version. Comment out next line to remove this functionality.");
+//                NSLog(@"No connecting '/' before version, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.version]);
+//                NSLog(@"Adding '/' to front of version. Comment out next line to remove this functionality.");
                 
                 versionString = [NSString stringWithFormat: @"/%@", versionString];
             }
@@ -326,8 +326,8 @@
             NSString *apiString = self.apiKey;
             
             if (!([urlEnding isEqualToString:@"/"] || [apiFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before apiKey, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.apiKey]);
-                NSLog(@"Adding '/' to front of apiKey. Comment out next line to remove this functionality.");
+//                NSLog(@"No connecting '/' before apiKey, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.apiKey]);
+//                NSLog(@"Adding '/' to front of apiKey. Comment out next line to remove this functionality.");
                 
                 apiString = [NSString stringWithFormat: @"/%@", apiString];
             }
@@ -345,8 +345,8 @@
             NSString *relativeString = self.relativePath;
             
             if (!([urlEnding isEqualToString:@"/"] || [relativeFront isEqualToString:@"/"])) {
-                NSLog(@"No connecting '/' before relativePath, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.relativePath]);
-                NSLog(@"Adding '/' to from of relativePath. Comment out next line to remove this functionality.");
+//                NSLog(@"No connecting '/' before relativePath, results in: %@", [NSString stringWithFormat:@"%@%@", url, self.relativePath]);
+//                NSLog(@"Adding '/' to from of relativePath. Comment out next line to remove this functionality.");
                 
                 relativeString = [NSString stringWithFormat: @"/%@", relativeString];
                 
