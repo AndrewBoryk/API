@@ -295,13 +295,13 @@
 }
 
 - (NSString *)urlString {
-    if ([APICommons isValidPath:self.url]) {
+    if ([APICommons isValidString:self.url]) {
         return self.url;
         
-    } else if ([APICommons isValidPath:self.base]) {
+    } else if ([APICommons isValidString:self.base]) {
         NSString *url = self.base;
         
-        if ([APICommons isValidPath:self.version]) {
+        if ([APICommons isValidString:self.version]) {
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *versionFront = [self.version substringWithRange:NSMakeRange(0, 1)];
             
@@ -312,7 +312,7 @@
             }
         }
         
-        if ([APICommons isValidPath:self.apiKey]) {
+        if ([APICommons isValidString:self.apiKey]) {
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *apiFront = [self.apiKey substringWithRange:NSMakeRange(0, 1)];
             
@@ -323,7 +323,7 @@
             }
         }
         
-        if ([APICommons isValidPath:self.relativePath]) {
+        if ([APICommons isValidString:self.relativePath]) {
             NSString *urlEnding = [url substringFromIndex:url.length - 1];
             NSString *relativeFront = [self.relativePath substringWithRange:NSMakeRange(0, 1)];
             
@@ -336,9 +336,9 @@
         
         return url;
         
-    } else {
-        return @"";
     }
+    
+    return nil;
 }
 
 @end

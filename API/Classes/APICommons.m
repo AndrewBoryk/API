@@ -72,4 +72,16 @@
     }
 }
 
++ (BOOL)isValidString:(NSString *)string {
+    if ([APICommons notNull:string]) {
+        NSString *testBlankString = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([APICommons notBlank:testBlankString]) {
+            return YES;
+        }
+        
+    }
+    
+    return NO;
+}
+
 @end

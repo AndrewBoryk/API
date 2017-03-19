@@ -33,4 +33,7 @@ typedef void (^APIResponseBlock)(APIResponseObject *response, NSError *error);
 /// Returns true if the path is not null, nil, or blank
 + (BOOL)isValidPath:(NSString *)path;
 
+/// Returns true if the string is not null, nil, or blank
++ (BOOL)isValidString:(NSString *)string;
+
 @end

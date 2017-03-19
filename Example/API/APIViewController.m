@@ -26,6 +26,41 @@
     } completion:^(APIResponseObject *response, NSError *error) {
         
     }];
+    
+    [API POST:nil header:nil parameters:nil progress:nil completion:nil];
+    
+    [API PUT:@"" header:nil parameters:nil completion:^(APIResponseObject *response, NSError *error) {
+        
+    }];
+    
+    [API DEL:nil header:nil parameters:nil completion:^(APIResponseObject *response, NSError *error) {
+        
+    }];
+    
+    APIRequest *getRequest = [[APIRequest alloc] initWithURL:@""];
+    [getRequest GET:^(APIResponseObject *response, NSError *error) {
+        
+    } withProgress:^(double fractionCompleted) {
+        
+    }];
+    
+    APIRequest *postRequest = [[APIRequest alloc] initWithURL:@""];
+    [postRequest POST:^(APIResponseObject *response, NSError *error) {
+        
+    } withProgress:^(double fractionCompleted) {
+        
+    }];
+    
+    APIRequest *putRequest = [[APIRequest alloc] initWithBase:@"" version:nil apiKey:nil relativePath:nil];
+    [putRequest PUT:^(APIResponseObject *response, NSError *error) {
+        
+    }];
+    
+    APIRequest *delRequest = [[APIRequest alloc] initWithBase:@"" version:nil apiKey:nil relativePath:nil];
+    
+    [delRequest DELETE:^(APIResponseObject *response, NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
