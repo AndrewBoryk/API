@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'API_Example' do
+  pod 'API', :path => '../'
+
+  target 'API_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
