@@ -8,7 +8,7 @@
 
 ## Description
 
-API is a wrapper for AlamoFire's AFNetworking framework. API allows for easy API creation within one's app, so that time when can be saved.
+API is a wrapper for the [AFNetworking](https://github.com/AFNetworking/AFNetworking) framework. API allows for easy API creation within one's app, so that time when can be saved.
 
 ## Example
 
