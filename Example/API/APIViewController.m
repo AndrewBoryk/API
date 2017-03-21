@@ -9,6 +9,7 @@
 #import "APIViewController.h"
 #import <API/API.h>
 #import <API/APIRequest.h>
+#import "APIWeather.h"
 
 @interface APIViewController ()
 
@@ -16,55 +17,19 @@
 
 @implementation APIViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [API GET:@"" header:nil parameters:nil progress:^(double fractionCompleted) {
-        
-    } completion:^(APIResponseObject *response, NSError *error) {
-        
-    }];
-    
-    [API POST:nil header:nil parameters:nil progress:nil completion:nil];
-    
-    [API PUT:@"" header:nil parameters:nil completion:^(APIResponseObject *response, NSError *error) {
-        
-    }];
-    
-    [API DEL:nil header:nil parameters:nil completion:^(APIResponseObject *response, NSError *error) {
-        
-    }];
-    
-    APIRequest *getRequest = [[APIRequest alloc] initWithURL:@""];
-    [getRequest GET:^(APIResponseObject *response, NSError *error) {
-        
-    } withProgress:^(double fractionCompleted) {
-        
-    }];
-    
-    APIRequest *postRequest = [[APIRequest alloc] initWithURL:@""];
-    [postRequest POST:^(APIResponseObject *response, NSError *error) {
-        
-    } withProgress:^(double fractionCompleted) {
-        
-    }];
-    
-    APIRequest *putRequest = [[APIRequest alloc] initWithBase:@"" version:nil apiKey:nil relativePath:nil];
-    [putRequest PUT:^(APIResponseObject *response, NSError *error) {
-        
-    }];
-    
-    APIRequest *delRequest = [[APIRequest alloc] initWithBase:[API base] version:[API version] apiKey:[API apiKey] relativePath:@"test/"];
-    
-    [delRequest DELETE:^(APIResponseObject *response, NSError *error) {
-        
-    }];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [APIWeather requestWeather:GET usingMethod:UsingAPIRequest];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
